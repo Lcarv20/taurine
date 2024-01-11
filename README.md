@@ -1,6 +1,6 @@
 setup tauri + tailwind + shadcn
 
-1- 
+1- bootstrap tauri
 ```
 bun create tauri-app@latest
 ``` 
@@ -13,13 +13,15 @@ bunx tailwindcss init -p
 ```
 
 
-go to src/styles.css and paste:
-`@tailwind base;
+3- go to src/styles.css and paste:
+```
+@tailwind base;
 @tailwind components;
-@tailwind utilities;`
+@tailwind utilities;
+```
 
 
-3 - go to tsconfig.json and inside `compilerOptions` paste:
+3- go to tsconfig.json and inside `compilerOptions` paste:
 ```
 "baseUrl": ".",
     "paths": {
@@ -54,12 +56,15 @@ export default defineConfig({
 })
 ```
 
-5- init shadcn
+6- init shadcn
 ```
 bunx --bun shadcn-ui@latest init
 ```
 NOTE: don't forget that the global css is under src/styles.css not src/index.css
 
-6- try it out `bunx --bun shadcn-ui@latest add button`
+7- try it out 
+```
+bunx --bun shadcn-ui@latest add button
+```
 
 
