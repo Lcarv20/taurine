@@ -1,7 +1,47 @@
-# Tauri + React + Typescript
+setup tauri + tailwind + shadcn
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+1- `bun create tauri-app@latest` cd the folder and install deps
+2- `
+bun install -D tailwindcss postcss autoprefixer
+bunx tailwindcss init -p
+`
 
-## Recommended IDE Setup
+go to src/styles.css and paste:
+`@tailwind base;
+@tailwind components;
+@tailwind utilities;`
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+
+3 - go to tsconfig.json and inside compilerOptions paste:
+`"baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }`
+
+after run `bun add -D @types/node`
+open tailwind.config.js and add 
+`import path from "path"
+...
+
+import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+ 
+export default defineConfig({
+  plugins: [react()],
+  ...
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+`
+4- `bunx --bun shadcn-ui@latest init`
+NOTE: don't forget thast the global css is under src/styles.css not index.css
+
+5- try it out `bunx --bun shadcn-ui@latest add button`
+
+
